@@ -30,6 +30,10 @@ Baseball(야구)
 Basketball(농구)
  pos : String (포지션 - 가드/포워드/센터)
 
+#### 결과
+<img width="442" height="1092" alt="image" src="https://github.com/user-attachments/assets/98959885-30fb-406d-ac01-aa077deae2ce" />
+
+
 #### 회고
 최근에 코딩 테스트를 준비하며 절차지향으로만 코드를 작성해와서, 개발을 위한 코딩을 오랜만에 해보았다. 
 객체지향적 관점에서 코드를 작성하는 것이 어색해서 주제를 선정하고 구현하는데 시간이 좀 걸렸다. 다 작성하고 보니, 
