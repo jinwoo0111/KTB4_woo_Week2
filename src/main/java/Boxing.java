@@ -1,28 +1,20 @@
 import java.util.Scanner;
 
 public class Boxing extends MartialArts{
-    String stance; // 1. 사우스포 or 2. 오소독스
-    public Boxing(String name, int age){
-        super(name, age);
-        Scanner sc = new Scanner(System.in);
+    private BoxingStance stance; // 1. 사우스포 or 2. 오소독스
+    public Boxing(String name, int age, WeightClass weight, BoxingStance stance){
+        super(name, age, weight);
+        this.stance = stance;
+    }
 
-        while(true){
-            System.out.println("[ 스탠스 선택 ]");
-            System.out.println("1. 사우스포 | 2. 오소독스");
-            System.out.print("스탠스 선택: ");
-            int tmp = sc.nextInt();
+    public BoxingStance getStance(){
+        return stance;
+    }
 
-            if(tmp == 1){
-                this.stance = "사우스포";
-                break;
-            }
-            else if(tmp == 2){
-                this.stance = "오소독스";
-                break;
-            }
-            else{
-                System.out.println("1, 2 중 하나를 선택하세요.");
-            }
-        }
+    @Override
+    public void printInfo(){
+        System.out.println("[복싱 선수 아바타 생성 완료]");
+        super.printInfo();
+        System.out.println("스탠스: " + stance);
     }
 }
