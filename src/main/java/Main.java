@@ -1,7 +1,9 @@
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main{
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException{
         String name;
         int age;
         SportCategory event = null; //Enum (운동 종목)
@@ -202,7 +204,19 @@ public class Main{
             }
         }
         System.out.println("====================================");
+        System.out.println("[알림] 아바타 생성 완료");
         avatar.printInfo();
         System.out.println("====================================");
+
+        ExecutorService threadpool = Executors.newFixedThreadPool(2); //스레드 2개
+        TrainingTask training = new TrainingTask(avatar);
+        Weather weather = new Weather(avatar);
+        threadpool.execute(training);
+        threadpool.execute(weather);
+
+        while(true){
+            Thread.sleep(3000);
+            System.out.println("[모니터링] 현재 아바타 HP : " + avatar.getHp());
+        }
     }
 }
